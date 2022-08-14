@@ -1,9 +1,9 @@
 openapi: 3.0.2
 info:
   version: 1.0.0
-  title: ECHOHUB Clearing House Portal  
+  title: ECHOHUB ECHOVault  
   contact:
-    email: Echo_Crhc@echohealthinc.com
+    email: Echo_Vault@echohealthinc.com
     url: 'https://echohubDocumentation@echohealthinc.com'
   
   x-logo:
