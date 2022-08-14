@@ -1,0 +1,375 @@
+openapi: 3.1.0
+info:
+  title: ECHOHUB API
+  description: >-
+    API Endpoints for the ECHOHUB Project. Team
+
+
+    # Authentication
+
+    Authentication is a process by which a system verifies the identity of a
+    user accessing this API.       
+
+
+    <!-- ReDoc-Inject: <security-definitions> -->
+  version: v1
+  termsOfService: https://example.com
+  contact:
+    name: ECHO Health Inc.
+    url: https://echohealthinc.com
+    email: Echo_Hub@echohealthinc.com
+externalDocs:
+  description: |
+    description external docs text
+  url: 'https://example.server.io'
+servers:
+  - url: /v1
+  
+paths:
+  #Authorization
+  /api/Authentication/v1/Authentication:
+    $ref: paths/Authentication/api@RequestAuthentication@V1.yaml
+  #ACH
+  /api/DirectPay/ACH/v1/ACHPayment:
+    $ref: paths/ACH/api@DirectPay@ACH@v1@ACHPayment.yaml
+  /api/DirectPay/ACH/v1/ACHCancel:
+    $ref: paths/ACH/api@DirectPay@ACH@v1@ACHCancel.yaml
+  /api/DirectPay/ACH/v1/ACHStatus:
+    $ref: paths/ACH/api@DirectPay@ACH@v1@ACHStatus.yaml
+  #ClearingHousePotal 
+  /api/ClearingHouse/v1/Portal [Register User]:
+    $ref: paths/ClearingHousePortal/api@ClearingHouse@v1@RegisterUser.yaml
+  /api/ClearingHouse/v1/Portal [Validate User]:
+    $ref: paths/ClearingHousePortal/api@ClearingHouse@v1@ValidateUser.yaml
+  /api/ClearingHouse/v1/Portal [Get Clearing House By Domain]:
+    $ref: paths/ClearingHousePortal/api@ClearingHouse@v1@GetCHByDomain.yaml
+  /api/ClearingHouse/v1/Portal [Send an email]:
+    $ref: paths/ClearingHousePortal/api@ClearingHouse@v1@SendEmail.yaml
+  /api/ClearingHouse/v1/Portal [Validate an email]:
+    $ref: paths/ClearingHousePortal/api@ClearingHouse@v1@ValidateEmail.yaml
+  /api/ClearingHouse/v1/Portal [Approve Pending User Registration]:
+    $ref: paths/ClearingHousePortal/api@ClearingHouse@v1@ApprovePendingUserRegistartion.yaml
+  /api/ClearingHouse/v1/Portal [Check on Create Password Link Expiry]:
+    $ref: paths/ClearingHousePortal/api@ClearingHouse@v1@CheckPasswordLinkExpiry.yaml
+  /api/ClearingHouse/v1/Portal [Create Password]:
+    $ref: paths/ClearingHousePortal/api@ClearingHouse@v1@CreatePassword.yaml
+  /api/ClearingHouse/v1/Portal [Decline Pending User Registration]:
+    $ref: paths/ClearingHousePortal/api@ClearingHouse@v1@DeclinePendingUserRegistration.yaml
+  /api/ClearingHouse/v1/Portal [Get All Pending User Registration]:
+    $ref: paths/ClearingHousePortal/api@ClearingHouse@v1@GetAllPendingUserRegistration.yaml
+  /api/ClearingHouse/v1/Portal [Create CH Admin]:
+    $ref: paths/ClearingHousePortal/api@ClearingHouse@v1@CreateCHAdmin.yaml
+  /api/ClearingHouse/v1/Portal [Get CH Admin Details By Registration Key]:
+    $ref: paths/ClearingHousePortal/api@ClearingHouse@v1@GetCHAdminByRegistrationKey.yaml
+  /api/ClearingHouse/v1/Portal [Get CH Admin Details By Id]:
+    $ref: paths/ClearingHousePortal/api@ClearingHouse@v1@GetCHAdminDetailsByID.yaml
+  /api/ClearingHouse/v1/Portal [Get All CH Admin Requests]:
+    $ref: paths/ClearingHousePortal/api@ClearingHouse@v1@GetAllCHAdminRequests.yaml
+  /api/ClearingHouse/v1/Portal [Delete CH Admin]:
+    $ref: paths/ClearingHousePortal/api@ClearingHouse@v1@DeleteCHAdmin.yaml
+  /api/ClearingHouse/v1/Portal [Get Build Version]:
+    $ref: paths/ClearingHousePortal/api@ClearingHouse@v1@GetBuildVersion.yaml
+  /api/ClearingHouse/v1/Portal [Get Active CH By User Name]:
+    $ref: paths/ClearingHousePortal/api@ClearingHouse@v1@GetActiveCHByUserName.yaml
+  /api/ClearingHouse/v1/Portal [Register CH Admin]:
+    $ref: paths/ClearingHousePortal/api@ClearingHouse@v1@RegisterCHAdmin.yaml
+  #DirectToDebit
+  /api/DirectPay/DirectToDebit/v1/DirectToDebitPayment:
+    $ref: paths/DirectToDebit/api@DirectPay@DirectToDebit@v1@DirectToDebitPayment.yaml
+  /api/DirectPay/DirectToDebit/v1/DirectToDebitCancel:
+    $ref: paths/DirectToDebit/api@DirectPay@DirectToDebit@v1@DirectToDebitCancel.yaml
+  /api/DirectPay/DirectToDebit/v1/DirectToDebitStatus:
+    $ref: paths/DirectToDebit/api@DirectPay@DirectToDebit@v1@DirectToDebitStatus.yaml 
+  #eCheck
+  /api/eCheck/v1/MPXECheckPayeeContact: 
+    $ref: paths/Echecks/api@eCheck@v1@MPXECheckPayeeContact.yaml
+  /api/DirectPay/Deluxe/v1/DeluxeEcheck:
+    $ref: paths/Echecks/api@DirectPay@Deluxe@v1@DeluxeEcheck.yaml
+  #eCheckPDF 
+  /api/PDFDocs/v1/PDFDownload [For SelectPay]:
+    $ref: paths/PDFDocs/api@v1@PDFDownloadSelectPay.yaml
+  /api/PDFDocs/v1/PDFDownload [For Deluxe]:
+    $ref: paths/PDFDocs/api@v1@PDFDownloadDeluxe.yaml
+  /api/PDFDocs/v1/PDFDownload [For B2B]:
+    $ref: paths/PDFDocs/api@v1@PDFDownloadB2B.yaml
+  #ECHOVault
+  /api/EchoVault/V1/VaultProcess [For Session Create]:
+    $ref: paths/EchoVault/api@EchoVault@V1@VaultProcess@SessionCreate.yaml
+  /api/EchoVault/V1/VaultProcess [For Initialize Card Entry]:
+    $ref: paths/EchoVault/api@EchoVault@V1@VaultProcess@InitializeCardEntry.yaml
+  /api/EchoVault/V1/VaultProcess [For Payee Cancel]:
+    $ref: paths/EchoVault/api@EchoVault@V1@VaultProcess@PayeeCancel.yaml  
+  /api/EchoVault/V1/VaultProcess [For Payee Card Account]:
+    $ref: paths/EchoVault/api@EchoVault@V1@VaultProcess@PayeeCardAccount.yaml  
+  /api/EchoVault/V1/VaultProcess [For Payment Create]:
+    $ref: paths/EchoVault/api@EchoVault@V1@VaultProcess@PaymentCreate.yaml  
+  /api/EchoVault/V1/VaultProcess [For Payment Cancel]:
+    $ref: paths/EchoVault/api@EchoVault@V1@VaultProcess@PaymentCancel.yaml  
+  /api/EchoVault/V1/VaultProcess [For Payment Status]:
+    $ref: paths/EchoVault/api@EchoVault@V1@VaultProcess@PaymentStatus.yaml  
+  /api/EchoVault/V1/VaultProcess [For Get Vault Token Details]:
+    $ref: paths/EchoVault/api@EchoVault@V1@VaultProcess@GetVaultTokenDetails.yaml  
+  /api/EchoVault/V1/VaultProcess [For Get System Status]:
+    $ref: paths/EchoVault/api@EchoVault@V1@VaultProcess@GetSystemStatus.yaml  
+  /api/EchoVault/V1/VaultProcess [For WYSIWIG Zelle Payee Create]:
+    $ref: paths/EchoVault/api@EchoVault@V1@VaultProcess@WYSIWIGZellePayeeCreate.yaml  
+  /api/EchoVault/V1/VaultProcess [For WYSIWIG Venmo Payee Create]:
+    $ref: paths/EchoVault/api@EchoVault@V1@VaultProcess@WYSIWIGVenmoPayeeCreate.yaml  
+  /api/EchoVault/V1/VaultProcess [For WYSIWIG ACH Payee Create]:
+    $ref: paths/EchoVault/api@EchoVault@V1@VaultProcess@WYSIWIGACHPayeeCreate.yaml                
+  /api/EchoVault/V1/VaultProcess [For Zelle Payee Create]:
+    $ref: paths/EchoVault/api@EchoVault@V1@VaultProcess@ZellePayeeCreate.yaml  
+  /api/EchoVault/V1/VaultProcess [For Venmo Payee Create]:
+    $ref: paths/EchoVault/api@EchoVault@V1@VaultProcess@VenmoPayeeCreate.yaml  
+  /api/EchoVault/V1/VaultProcess [For ACH Payee Create]:
+    $ref: paths/EchoVault/api@EchoVault@V1@VaultProcess@ACHPayeeCreate.yaml  
+  /api/EchoVault/V1/VaultProcess [For Process System Data]:
+    $ref: paths/EchoVault/api@EchoVault@V1@VaultProcess@ProcessSystemData.yaml  
+  /api/EchoVault/V1/VaultProcess [For System Log Info]:
+    $ref: paths/EchoVault/api@EchoVault@V1@VaultProcess@SystemLogInfo.yaml  
+  /api/EchoVault/V1/VaultProcess [For System Log Removal]:
+    $ref: paths/EchoVault/api@EchoVault@V1@VaultProcess@SystemLogRemoval.yaml 
+  /api/EchoVault/V1/VaultProcess [For Get Vault Token Bank Details]:
+    $ref: paths/EchoVault/api@EchoVault@V1@VaultProcess@GetVaultTokenBankDetails.yaml      
+
+  #Lockbox
+  /api/LockBox/v1/LockBox:
+    $ref: paths/LockBox/api@LockBox@v1@LockBoxAddressCreate.yaml
+  /api/LockBox/v1/LockBox/'lbxDirectoryId' [PUT]:
+    $ref: paths/LockBox/api@LockBox@v1@LockBoxAddressUpdate.yaml
+  /api/LockBox/v1/LockBox/'lbxDirectoryId' [DELETE]:
+    $ref: paths/LockBox/api@LockBox@v1@LockBoxAddressDelete.yaml
+  /api/LockBox/v1/Payee:
+    $ref: paths/LockBox/api@LockBox@v1@LockBoxpayeeCreate.yaml
+  /api/LockBox/v1/Payee/'lbxDirectoryId' [PUT]:
+    $ref: paths/LockBox/api@LockBox@v1@LockBoxPayeeUpdate.yaml
+  /api/LockBox/v1/Payee/'lbxDirectoryId'/'payeeId' [DELETE]:
+    $ref: paths/LockBox/api@LockBox@v1@LockBoxPayeeDelete.yaml
+  /api/LockBox/v1/Lookup:
+    $ref: paths/LockBox/api@LockBox@v1@Lookup.yaml
+  /api/LockBox/v1/Lookup/'BatchTransactionId':  
+    $ref: paths/LockBox/api@LockBox@v1@LookupStatus.yaml
+  #Universal Payment Cancel
+  /api/DirectPay/v1/PaymentCancel [For ACH] :
+    $ref: paths/UniversalCancel/api@DirectPay@v1@UniversalACHCancel.yaml
+  /api/DirectPay/v1/PaymentCancel [For Deluxe]:
+    $ref: paths/UniversalCancel/api@DirectPay@v1@UniversalDeluxeCancel.yaml
+  /api/DirectPay/v1/PaymentCancel [For Direct To Debit] :
+    $ref: paths/UniversalCancel/api@DirectPay@v1@UniversalDirectToDebitCancel.yaml
+  /api/DirectPay/v1/PaymentCancel [For Venmo] :
+    $ref: paths/UniversalCancel/api@DirectPay@v1@UniversalVenmoCancel.yaml
+  /api/DirectPay/v1/PaymentCancel [For Zelle] :
+    $ref: paths/UniversalCancel/api@DirectPay@v1@UniversalZelleCancel.yaml
+  /api/DirectPay/v1/PaymentCancel [For VCP] :
+    $ref: paths/UniversalCancel/api@DirectPay@v1@UniversalVCPCancel.yaml
+  #Universal Payment Status
+  /api/DirectPay/v1/PaymentStatus [For ACH] :
+    $ref: paths/UniversalStatus/api@DirectPay@v1@UniversalACHStatus.yaml
+  /api/DirectPay/v1/PaymentStatus [For Direct To Debit] :
+    $ref: paths/UniversalStatus/api@DirectPay@v1@UniversalDirectToDebitStatus.yaml
+  /api/DirectPay/v1/PaymentStatus [For Venmo] :
+    $ref: paths/UniversalStatus/api@DirectPay@v1@UniversalVenmoStatus.yaml
+  /api/DirectPay/v1/PaymentStatus [For Zelle] :
+    $ref: paths/UniversalStatus/api@DirectPay@v1@UniversalZelleStatus.yaml
+  /api/DirectPay/v1/PaymentStatus [For VCP] :
+    $ref: paths/UniversalStatus/api@DirectPay@v1@UniversalVCPStatus.yaml
+  #Universal Payment Void
+  /api/DirectPay/v1/PaymentVoid:
+    $ref: paths/UniversalVoid/api@DirectPay@v1@UniversalDeluxeVoid.yaml
+  #Send Email
+  /api/Messaging/v1/SendEmail:
+    $ref: paths/SendEmail/api@v1@SendEmail.yaml
+  #Venmo
+  /api/DirectPay/Venmo/v1/VenmoPayment:
+    $ref: paths/Venmo/api@DirectPay@Venmo@v1@VenmoPayment.yaml
+  /api/DirectPay/Venmo/v1/VenmoCancel:
+    $ref: paths/Venmo/api@DirectPay@Venmo@v1@VenmoCancel.yaml
+  /api/DirectPay/Venmo/v1/VenmoStatus:
+    $ref: paths/Venmo/api@DirectPay@Venmo@v1@VenmoStatus.yaml
+  #VCP    
+  /api/VCP/V1/CardActivity:
+    $ref: paths/VCP/api@VCP@V1@CardActivity.yaml
+  /api/VCP/V1/CardCancel:
+    $ref: paths/VCP/api@VCP@V1@CardCancel.yaml
+  #WebHook
+  /api/WebHook/v1/WebhookStatusUpdate:
+    $ref: paths/WebHook/api@v1@ThirdPartyWebhookStatusUpdate.yaml     
+  /api/WebHook/v1/InternalWebhookStatusUpdate:
+    $ref: paths/WebHook/api@v1@InternalWebhookStatusUpdate.yaml
+  #WebPay
+  /api/DirectPay/v1/WebPay [Create Process]:
+    $ref: paths/WebPay/api@v1@WebPayCreateProcess.yaml
+  /api/DirectPay/v1/WebPay [Cancel Process]:
+    $ref: paths/WebPay/api@v1@WebPayCancelProcess.yaml
+  /api/DirectPay/v1/WebPay [Create Payment]:
+    $ref: paths/WebPay/api@v1@WebPayCreatePayment.yaml  
+  /api/DirectPay/v1/WebPay [Submitted Process]:
+    $ref: paths/WebPay/api@v1@WebPaySubmittedProcess.yaml     
+ #Zelle
+  /api/DirectPay/Zelle/v1/ZellePayment:
+    $ref: paths/Zelle/api@DirectPay@Zelle@v1@ZellePayment.yaml
+  /api/DirectPay/v1/PaymentCancel:
+    $ref: paths/Zelle/api@DirectPay@Zelle@v1@ZelleCancel.yaml
+  /api/DirectPay/Zelle/v1/ZelleStatus:
+    $ref: paths/Zelle/api@DirectPay@Zelle@v1@ZelleStatus.yaml
+ 
+components:
+  securitySchemes:
+    x-ApiKey:
+      type: apiKey 
+      name: x-ApiKey
+      description: The API key
+      in: header
+    x-ClientKey:
+      type: apiKey
+      description: The Client key
+      name: x-ClientKey
+      in: header
+      
+
+tags:
+  #Authorization
+  - name: Authorization 
+    description: |
+      This endpoint helps to generate the Authorization Token for accessing the endpoints. 
+  #ACH
+  - name:  ACH
+    description: |
+       An ACH (Automated Clearing House) payment is a type of electronic bank-to-bank payment made through the ACH network that coordinates electronic payments and automated money transfers. Also known as direct payments, ACH payments are a way to transfer money from one bank account to another without using paper checks, credit card networks, wire transfers, or cash.  
+       The ACH network makes money transfers easier and simpler. ACH payments can be automated; they are secure, inexpensive, and make recordkeeping easier. A bank routing number, also known as an ABA (American Bankers' Association) number, is a 9-digit, unique ID assigned to every bank that is required to identify the bank account for sending and receiving money.    
+  #ClearingHousePotal
+  - name: Clearinghouse Portal
+    description: |
+     A clearinghouse functions as an intermediary for the transactions between healthcare providers and insurance payers. The clearinghouse is imperative to the processing of all medical claims and records electronically to ensure a faster turnaround on claim processing. 
+     ECHO’s clearinghouse portal is a website that allows clearinghouses to check EFT (Electronic Funds Transfer)/ERA (Electronic Remittance Advice) enrollment status for their providers. The portal also provides the bulk EFT and ERA status reports and reposts missing 835 files to the clearinghouse directory.
+     The clearinghouse portal controls clearinghouse access by managing user access and limiting users to only the data pertinent to their company. The portal also establishes the domains associated with the clearinghouse, as well as IP ranges where possible. 
+
+  #DirectToDebit 
+  - name: Direct to Debit
+    description: |
+      Direct to Debit is the simplest and most convenient way to make payments. It is a type of pre-authorized payment that allows a bank to pay a certain amount directly to the provider with a debit card. With Direct to Debit payments, the money is directly transferred to the cardholder.  
+      Direct to Debit has three endpoints:  
+      * Direct to Debit payment create  
+      * Direct to Debit payment status   
+      * Direct to Debit payment cancel     
+  #eCheck
+  - name: eCheck
+    description: |
+      An eCheck, or electronic check, is a digital version of a paper check that
+      is used to make a payment online.    
+
+      With an eCheck, money is electronically withdrawn from the Payor’s
+      checking account. Money is transferred over the ACH (Automated Clearing House) network and
+      deposited into the Payee’s checking account.
+  #eCheckPDF
+  - name:  eCheck PDF
+    description: | 
+       This endpoint allows the consumer Payee to get a PDF file of a Deluxe eCheck from the payment systems in ECHO Hub. The Payee can download the PDF file, print the eCheck and cash or deposit it just like a paper check. When the Payee logs into a payment system and makes the payment selection as eCheck, an eCheck is created and this API retrieves the PDF file. First, the data is validated in the ECHO Hub system and is then redirected to the Deluxe library in ECHO Hub. The Deluxe library will receive requests to get an eCheck PDF file from Deluxe. The PDF is retrieved, and ECHO Hub will send a success message along with the eCheck PDF file stream to the requested payment system and then the PDF file to the consumer Payee.    
+  
+  #ECHO Vault
+  - name: ECHO Vault
+    description: | 
+     ECHO Vault acts as central storage for all sensitive information that can be stored in an encrypted format and can be retrieved by decryption. The ECHO Vault operates payments through a secure payment gateway and is followed by all PCI (Payment Card Industry) compliance security rules. ECHO Vault deploys an Azure cloud service for providing a highly secure repository for the most sensitive data such as bank accounts, debit cards, and other financial information.  
+
+     The main features of ECHO Vault are increased security and control over keys, passwords, and payment details. ECHO Vault prevents the disclosure of information through source code and enables to save payment data safely in a PCI-compliant environment that can be used for future payments.  
+     
+     Access to ECHO Vault requires proper authentication and authorization. If authentication is successful, the consumer is granted a session token to call the target API, which allows performing certain actions specified by the scope that was granted during authorization.
+    
+  #Lockbox
+  - name: Lockbox
+    description: |
+     Lockbox refers to a payment service that helps speed up receiving and processing check payments. With lockbox service, the checks are mailed to a separate P.O (Post Office) box address maintained by the lockbox provider, such as a bank. The checks are collected, opened, scanned, and deposited directly by the bank. Each day, the deposits will be entered into an automated system with details available via web access.
+
+     On the other hand, lockbox express provides a more efficient system to receive and deposit check payments. The checks and any other payment documents are sent electronically and when received are scanned in a single process reducing the manual effort required to handle the documents several times. 
+    
+     Clients can use the Lockbox APIs to build the directory of eligible P.O. Boxes (lockboxes) and then to submit payment information to determine which payments can be sent electronically to an eligible lockbox.  
+    
+     Lockbox payment has three APIs - Lockbox, Lockbox Payee and Lockbox Lookup  
+     
+     (1) Lockbox  
+     The Lockbox API is used to maintain a list of a client’s eligible lockboxes for delivering electronic payments to the payees. This helps a client send the payment addresses to ECHO Hub for processing the payments. 
+     
+     The lockbox API allows ‘Post’, ‘Put’, and ‘Delete’ operations which correspond to add, update, and delete lockbox addresses respectively.  
+
+
+     (2) Lockbox Payee  
+     Lockbox payee API is used to maintain a list of payees associated with each of the lockboxes. This helps a client deliver electronic payments to the payees using the lockbox express process by sending the payment addresses to ECHO Hub for processing payments.  
+     
+     The lockbox payee API allows ‘Post’, ‘Put’, and ‘Delete’ operations for a given lockbox payee which correspond to add, update, and delete payee names respectively.  
+
+     (3) Lockbox Lookup  
+     This API enables the consumer to send a list of payment addresses to perform a lookup for a match on a lockbox in the lockbox directory. Lockbox lookup API helps a client to send payment addresses to ECHO Hub for determining matches to a Lockbox.  
+     
+     Lockbox lookup allows ‘Post’ and ‘Get’ operations. The Post method helps to find a lockbox match in the lockbox directory while the Get method helps to know the status of lockbox batch transactions.
+   
+
+  #Universal Payment Cancel
+  - name: Payment Cancel
+    description: | 
+           The  Payment Cancel endpoint allows the API user to access and cancel a payment that may be Direct to Debit, Venmo, Zelle, or a Virtual Card based on the Library method. This endpoint helps validate and call a particular API internally based on the unique Payor Reference ID. This is used for in-house application only.     
+  #Universal Payment Status
+  - name:  Payment Status
+    description: | 
+           The  Payment Status endpoint allows the API user to access and get the status of a payment that may be Direct to Debit, Venmo, Zelle, or a Virtual Card based on the library method. This endpoint helps validate and call a particular API internally based on the unique Payor Reference ID. This is used for in-house application only.
+  #Universal Payment Void
+  - name:  Payment Void
+    description: |      
+           The  Payment Void endpoint allows the API user to access and void a payment like Deluxe eCheck based on the Library method. This endpoint helps validate and call a particular API internally based on the unique Payor Reference ID. This is used for in-house application only.
+  #Send Email
+  - name : Send Email
+    description: |
+            Email is a standard electronic communication format which is rapid and easy, and it helps maintain a written record of communications. An email API allows applications to access functions offered by the email service provider’s platform for sending emails. The send email endpoint is used to send emails from ECHO Hub application through SendGrid or SMTP.
+  #Venmo
+  - name: Venmo
+    description: |
+      Venmo is a payment app available on iPhones and Android phones that allows for the quick and easy exchange of money. A user with a Venmo account can transfer funds to the Payee bank account without needing cash or checks.  
+      Venmo accounts can be linked to credit cards, debit cards, or checking accounts. Venmo is more like a digital wallet where funds are held as a Venmo balance in the checking account.  
+      Venmo has three endpoints:  
+      •	Venmo payment create  
+      •	Venmo payment status  
+      •	Venmo payment cancel
+  #VCP
+  - name: Virtual Card Program (VCP)
+    description: |
+      Virtual cards are one way that Echo facilitates payments from the Payor to the Provider. The Payor or Provider may have questions on whether a card has been used, what the card balance is, and if the card is active. For these types of inquiries, there is an API endpoint for card status and transactions. 
+
+      There are several situations where a Provider or Payor may want to cancel (Block) the card. The Payor may want to issue another form of payment directly to the Provider through their own process. The Provider may prefer a check or another form of payment (Block and Reissue), or the Provider may want to cancel their current card and opt out of all future cards (Block and OptOut). These types of card-blocking scenarios can be done through the following API endpoints -- Block, BlockAndReissue, and BlockAndOptOut.
+
+      virtual card program has two end points:
+        * Virtual Card  Activity 
+        * Virtual Card  Cancel
+  #WebHook         
+  - name: Webhook
+    description: |
+         Webhook provides a solution for enabling real-time notifications and data updates. Webhooks are one way for a web application to send automated messages or information to another application in real-time when a specific event occurs.  
+         
+         Webhooks are simple and efficient where information is obtained immediately when available. The intent of using a webhook here is to get the status update of payments. The ECHO Hub application gets the required data without having to send repeated requests to third-party vendors. Unlike APIs, an active batch is triggered at specific intervals to fetch information about the payment status through the different payment modalities such as Direct to Debit, Zelle, and Venmo.
+         
+         <img src="https://github.com/Uma78mahesh/EchoHubDocumentation-main--3-/blob/master/EchoHubDocumentation-main/docs/webhook_flow.jpg?raw=true" alt="Webhook flow"/>
+  #WebPay
+  - name: WebPay
+    description: |
+     WebPay is a PCI-compliant online service that allows users to access a third-party website and set up one-time and/or recurring payments to their Direct to Debit card, Venmo, Zelle, or bank account. A token that has a unique ID is assigned for each WebPay session and it will have a time-out limit if there is inactivity in the browser.  
+     
+     Web payments make checkout easy for the user, by reusing stored card/account information and eliminating the need for the user to fill in checkout forms.  
+     
+     The UI is implemented by the browser, and users see a familiar and consistent checkout experience on any website that uses the standard.  
+     
+     WebPay has four endpoints:
+     * WebPay - Create process
+     * WebPay - Create Payment
+     * WebPay - Cancel Process
+     * WebPay - Submitted Process
+    
+  #Zelle
+  - name: Zelle
+    description: |
+          Zelle helps transfer funds between bank accounts instantly through the Zelle app with just an email address or mobile number. The amount is directly deposited into the Payee’s bank account. Money sent with Zelle is typically available to a Zelle enrolled Payee within minutes.  
+          Zelle has three endpoints:
+          * Zelle payment create
+          * Zelle payment status
+          * Zelle payment cancel
+
+
+      
+      
