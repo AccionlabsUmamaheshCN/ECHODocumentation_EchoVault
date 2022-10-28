@@ -25,7 +25,7 @@ info:
 
   
 servers:
-  - url: 'https://echohealthinc.com/echoexternalapi/api/v1/gettoken'  
+  - url: 'https://echohealthinc.com/'  
 security:
   - x-ApiKey: []
   - x-ClientKey: []
