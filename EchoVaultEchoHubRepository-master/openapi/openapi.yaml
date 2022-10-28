@@ -25,7 +25,7 @@ info:
 
   
 servers:
-  - url: 'https://echohealthinc.com/'  
+  - url: 'https://echohealthinc.com'  
 security:
   - x-ApiKey: []
   - x-ClientKey: []
